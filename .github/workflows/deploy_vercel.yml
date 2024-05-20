@@ -1,9 +1,12 @@
 name: Deploy CI
 on:
-  push:
-    branches: [master]
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Whether to overwrite documents found in the record manager'
+        required: false
+        default: false
+        type: boolean
 jobs:
   deploy:
     runs-on: ubuntu-latest
