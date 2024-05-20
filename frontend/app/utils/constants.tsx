@@ -1,1 +1,4 @@
-export const apiBaseUrl = `https://chat-langchainjs-frontend-delta.vercel.app/api`;
+const apiBasePath = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : `http://localhost:3000`;
+export const apiBaseUrl = `${apiBasePath}/api`;
